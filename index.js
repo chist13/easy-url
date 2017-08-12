@@ -118,6 +118,26 @@ class Url{
     }
 
     /**
+     * refreshes instance due to current querystring
+     *
+     * useful that querystring is changed by something else
+     */
+    refresh() {
+        if (location.search.replace(/^\?/, '') !== this.search.replace(/^\?/, '')) {
+            this._reinit()
+        }
+    }
+
+    /**
+     * refreshes instance forcefully
+     *
+     * useful that querystring is changed by something else
+     */
+    forceRefresh() {
+        this._reinit()
+    }
+
+    /**
      * apply changes to url and emit event
      */
     _replaceUrl() {
@@ -137,8 +157,6 @@ class Url{
 
     /**
      * Reinit instance
-     *
-     * useful that querystring is changed by something else
      */
     _reinit() {
         this.obj = {}
