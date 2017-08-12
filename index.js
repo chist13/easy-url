@@ -106,6 +106,18 @@ class Url{
     }
 
     /**
+     * register listener witch fires only once
+     */
+    once(callback) {
+        const events = this.events
+
+        events.subscribe(function func() {
+            callback()
+            events.unsubscribe(func)
+        })
+    }
+
+    /**
      * apply changes to url and emit event
      */
     _replaceUrl() {
