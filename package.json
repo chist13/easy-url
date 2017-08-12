@@ -1,5 +1,5 @@
 {
-  "name": "url.js",
+  "name": "easy-url",
   "version": "0.0.1",
   "description": "lightweight library for manipulation querystring",
   "main": "index.js",
