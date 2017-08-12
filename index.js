@@ -76,7 +76,7 @@ class Url{
     }
 
     /**
-     * change property of obj withut upadeting url
+     * change property of obj without updating url
      */
     _silentPush(key, value) {
         value
@@ -106,7 +106,7 @@ class Url{
     }
 
     /**
-     * register listener witch fires only once
+     * register listener which fires only once
      */
     once(callback) {
         const events = this.events
@@ -136,12 +136,26 @@ class Url{
     }
 
     /**
+     * Reinit instance
+     *
+     * useful that querystring is changed by something else
+     */
+    _reinit() {
+        this.obj = {}
+        this.search = '?'
+
+        this.init()
+    }
+
+    /**
      * Initializes params from current location
      */
     _init() {
         const url = location.search.replace(/^\?/, '')
 
-        if (!url) return
+        if (!url) {
+            return
+        }
 
         for (const e of url.split('&')) {
             const parts = e.split('=')
