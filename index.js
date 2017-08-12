@@ -60,6 +60,22 @@ class Url{
     }
 
     /**
+     * remove prop form obj and update url
+     *
+     * remove all if no prop were provided
+     */
+    clear(key) {
+        if (key != null) {
+            this._silentPush(key, null)
+        } else {
+            for (let prop in this.obj)
+                this._silentPush(prop, null)
+        }
+
+        this._replaceUrl()
+    }
+
+    /**
      * change property of obj withut upadeting url
      */
     _silentPush(key, value) {

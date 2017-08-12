@@ -14,7 +14,7 @@ lightweight library for manipulation querystring
 
     url.push('search', 'foo') => http://site.com/home?search=foo
 
-    url.clear() => http://site.com/home
+    url.clear() => http://site.com/home?
 
     url.push({search: 'foo', page: 5}) => http://site.com/home?search=foo&page=5
 
