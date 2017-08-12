@@ -162,7 +162,7 @@ class Url{
         this.obj = {}
         this.search = '?'
 
-        this.init()
+        this._init()
     }
 
     /**
